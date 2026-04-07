@@ -7,7 +7,7 @@ public class TodoList {
         String[] tasks = new String[0];
         String command = "";
 
-        while (!(command == "e")) {
+        while (!(command.equals("e"))) {
             System.out.println("=== To-Do List ===");
             System.out.println("Commands List");
             System.out.println("a = Add new tasks");
@@ -31,7 +31,7 @@ public class TodoList {
                 } else {
                     System.out.println("Invalid command. Please try again.");
                 }
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Enter a number");
             }
 
