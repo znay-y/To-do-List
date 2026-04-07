@@ -34,3 +34,13 @@ This version establishes the **core functionality** of the task manager and prov
 - Enhanced CLI experience
 - Better data structures (like `ArrayList`)
 ***
+
+## v0.1.1 — Minor Update
+
+### Changes 
+- Fixed string comparison for main menu
+- Fixed incorrect error being caught 
+
+### Upcoming 
+- Actual removal of tasks as apposed to making them null
+- Renaming poorly named variables
