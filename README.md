@@ -1,1 +1,36 @@
-# Readme File
+# Java To-do List
+
+This project is a simple feature rich to-do list that uses the programming language java. It's purpose is to showcase skills such as arrays, methods, exception handling, and modular code structure.  
+
+
+***
+
+
+
+## v0.1.0 — Initial Release
+
+### Features
+- Add new tasks from the command line
+- View all current tasks
+- Remove tasks by index
+- Interactive CLI menu for easy navigation
+***
+### Implementation Details
+- Built using core Java (no external libraries)
+- Tasks stored in a dynamically resized array
+- Modular structure with separate methods:
+  - `addTask()` — add new tasks
+  - `viewTasks()` — view all tasks
+  - `removeTask()` — remove tasks by number
+***
+### Limitations
+- Tasks are **not persisted** (data is lost when program exits)
+- Basic input validation only
+- Uses arrays instead of more flexible data structures
+***
+### Purpose
+This version establishes the **core functionality** of the task manager and provides a foundation for future improvements, such as:
+- Task persistence
+- Enhanced CLI experience
+- Better data structures (like `ArrayList`)
+***
