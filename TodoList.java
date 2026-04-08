@@ -8,27 +8,8 @@ public class TodoList {
         Scanner kbm = new Scanner(System.in);
 
         // Pre-populate the task list with 20 tasks
-        // Purley for testing purposes
-        arrayAppend(tasks, "Call the dentist");
-        arrayAppend(tasks, "Walk the dog");
-        arrayAppend(tasks, "Read 10 pages of a book");
-        arrayAppend(tasks, "Buy groceries");
-        arrayAppend(tasks, "Clean the kitchen");
-        arrayAppend(tasks, "Reply to emails");
-        arrayAppend(tasks, "Go for a 20-minute run");
-        arrayAppend(tasks, "Schedule a meeting");
-        arrayAppend(tasks, "Do the laundry");
-        arrayAppend(tasks, "Water the plants");
-        arrayAppend(tasks, "Pay utility bills");
-        arrayAppend(tasks, "Organize desk");
-        arrayAppend(tasks, "Prepare dinner");
-        arrayAppend(tasks, "Check calendar for tomorrow");
-        arrayAppend(tasks, "Back up important files");
-        arrayAppend(tasks, "Review monthly budget");
-        arrayAppend(tasks, "Stretch for 10 minutes");
-        arrayAppend(tasks, "Update task list");
-        arrayAppend(tasks, "Take out the trash");
-        arrayAppend(tasks, "Refill water bottle");
+        // Purely for testing purposes
+
         String command = "";
 
         while (!(command.equalsIgnoreCase("e"))) {
@@ -153,6 +134,8 @@ public class TodoList {
 
         if (tasks.size() == 0) {
             System.out.println("There are no tasks to show right now...");
+            System.out.println("\nPress enter to return to the main menu");
+            kbm.nextLine();
         } else {
             System.out.println("\n=== All Tasks === \n");
             wait(500);
@@ -180,29 +163,34 @@ public class TodoList {
     public static void removeTask(ArrayList<String> tasks, Scanner kbm) {
         int newOrder = 1;
         viewTasks(tasks, kbm, true);
+        // if empty make it go back
+        if (tasks.size() == 0) {
 
-        System.out.print("\nEnter the number for the task you want to remove: ");
-        String newTask = kbm.nextLine();
-        int taskNum = Integer.parseInt(newTask);
-        clearWithLinuxCommand();
-        System.out.println("\n This is what your list will look like:\n");
-        for (int i = 0; i < tasks.size(); i++) {
-            if (i == taskNum - 1) {
-                continue;
-            } else {
-                System.out.println(newOrder + ". " + tasks.get(i));
-                wait(200);
-                newOrder++;
+        } else {
+            System.out.print("\nEnter the number for the task you want to remove: ");
+            String newTask = kbm.nextLine();
+            int taskNum = Integer.parseInt(newTask);
+            clearWithLinuxCommand();
+            System.out.println("\n This is what your list will look like:\n");
+            for (int i = 0; i < tasks.size(); i++) {
+                if (i == taskNum - 1) {
+                    continue;
+                } else {
+                    System.out.println(newOrder + ". " + tasks.get(i));
+                    wait(200);
+                    newOrder++;
 
+                }
+            }
+
+            System.out.println("\nIs this the change you want to make? (y/n)");
+            String saveornah = kbm.nextLine();
+
+            if (saveornah.equals("y")) {
+                arrayRemove(tasks, taskNum, kbm);
             }
         }
 
-        System.out.println("\nIs this the change you want to make? (y/n)");
-        String saveornah = kbm.nextLine();
-
-        if (saveornah.equals("y")) {
-            arrayRemove(tasks, taskNum, kbm);
-        }
     }
 
     public static void wait(int waitTime) {
