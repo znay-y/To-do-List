@@ -45,7 +45,7 @@ This version establishes the **core functionality** of the task manager and prov
 - Actual removal of tasks as apposed to making them null
 - Renaming poorly named variables
 
-## v0.1.2 — 
+## v0.1.2 — Bug Fixes
 
 ### Changes
 - Tasks actaully get removed from the list now
@@ -56,3 +56,20 @@ This version establishes the **core functionality** of the task manager and prov
 - Replacing string array with arraylist
 - Allowing users to undo removals
 - Showing users the updated to-do list 
+
+## v0.2.0 - Visual Refresh 
+
+### Changes 
+- Use arrayLists instead of an actual array resulting in many useless methods 
+- Visual updates like clearing the console when moving between menus by using `clearWithLinuxCommand()`
+- Users can preview item removal before finalising choice
+- Input validation for main menu
+
+### Limitations
+-  `clearWithLinuxCommand()` has not been tested on other platforms e.g. Windows
+
+### Upcoming 
+- Allowing users to view and restore removed entries
+- Not letting users add dulicate entries 
+- Priotity for tasks
+- Due dates for tasks 
