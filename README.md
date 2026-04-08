@@ -44,3 +44,15 @@ This version establishes the **core functionality** of the task manager and prov
 ### Upcoming 
 - Actual removal of tasks as apposed to making them null
 - Renaming poorly named variables
+
+## v0.1.2 — 
+
+### Changes
+- Tasks actaully get removed from the list now
+- Visual updates like waiting before printing new line 
+- Removed irrelevant lines/methods
+
+### Upcoming 
+- Replacing string array with arraylist
+- Allowing users to undo removals
+- Showing users the updated to-do list 
