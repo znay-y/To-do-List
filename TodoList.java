@@ -4,15 +4,29 @@ public class TodoList {
     public static void main(String[] args) {
         Scanner kbm = new Scanner(System.in);
         String[] tasks = new String[0];
+        tasks = arrayAppend(tasks, "Call the dentist");
+        tasks = arrayAppend(tasks, "Walk the dog");
+        tasks = arrayAppend(tasks, "Read 10 pages of a book");
         String command = "";
 
         while (!(command.equals("e"))) {
             System.out.println("=== To-Do List ===");
+            wait(300);
+
             System.out.println("Commands List");
+            wait(100);
+
             System.out.println("a = Add new tasks");
+            wait(100);
+
             System.out.println("v = View all tasks");
+            wait(100);
+
             System.out.println("r = Remove a task");
+            wait(100);
+
             System.out.println("e = Exit");
+            wait(300);
 
             System.out.print("Enter a command: ");
             command = kbm.nextLine();
@@ -45,7 +59,7 @@ public class TodoList {
         String newTask = kbm.nextLine();
 
         tasks = arrayAppend(tasks, newTask);
-        wait(200);
+        wait(500);
         System.out.println("Task has been added sucessfully");
         return tasks;
 
@@ -65,20 +79,47 @@ public class TodoList {
         return newArray;
     }
 
+    public static String[] arrayRemove(String[] stringArray, int index) {
+        int newEnd = stringArray.length - 1;
+        int newIndex = 0;
+
+        String[] newArray = new String[newEnd];
+
+        for (int i = 0; i < stringArray.length; i++) {
+            if (i == index - 1) {
+                continue;
+            } else {
+                newArray[newIndex] = stringArray[i];
+                newIndex++;
+            }
+        }
+
+        wait(500);
+        System.out.println("The task has been removed");
+
+        wait(200);
+        System.out.println("Returning to main menu");
+
+        return newArray;
+
+    }
+
     public static void viewTasks(String[] tasks) {
 
         if (tasks.length == 0) {
             System.out.println("There are no tasks to show right now...");
         } else {
-            System.out.println("=== All Tasks === \n");
-        wait(200);
+            System.out.println("\n=== All Tasks === \n");
+            wait(500);
 
             for (int i = 0; i < tasks.length; i++) {
                 System.out.println((i + 1) + ". " + tasks[i]);
+                wait(200);
             }
-        wait(200);
+            wait(500);
 
-            System.out.println("\n === List Printed ===");
+            System.out.println("\n === List Printed ===\n");
+            wait(200);
 
         }
 
@@ -94,27 +135,9 @@ public class TodoList {
         String newTask = kbm.nextLine();
         int taskNum = Integer.parseInt(newTask);
 
-        tasks = removeEntry(tasks, taskNum);
+        tasks = arrayRemove(tasks, taskNum);
 
         return tasks;
-
-    }
-
-    public static String[] removeEntry(String[] xs, int index) {
-
-        try {
-            xs[index - 1] = null;
-            wait(500);
-            System.out.println("The task has been removed");
-            return xs;
-
-        } catch (NullPointerException e) {
-            System.out.println("That task isn't in the list");
-        wait(200);
-            System.out.println("Returning to main menu");
-            return xs;
-
-        }
 
     }
 
