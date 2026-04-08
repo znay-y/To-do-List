@@ -11,7 +11,7 @@ public class guiForList {
         JButton button = new JButton("I am a silly button");
 
         frame.getContentPane().setBackground(new Color(120, 120, 120));
-
+        frame.add(button);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// makes x app actually close it
     }
 }
