@@ -73,3 +73,10 @@ This version establishes the **core functionality** of the task manager and prov
 - Not letting users add dulicate entries 
 - Priotity for tasks
 - Due dates for tasks 
+
+## v0.2.1 Minor Update
+
+### Updates
+- Viewing empty arrayList bug
+- Removing on empty lists fixed
+
