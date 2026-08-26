@@ -1,3 +1,4 @@
+
 /*
 Ideas
 1. Due dates 
@@ -21,8 +22,12 @@ public class TodoList {
     public static void mainMenu(ArrayList<task> taskManager, Scanner sc) {
         int choice = 0;
         while (choice != 4) {
-            showOptions();
+            showOptions(taskManager);
             choice = IO.INTput(sc, "Please enter your choice: ");
+            while (!choiceValid(choice)) {
+                IO.print("Invalid choice. Please try again.");
+                choice = IO.INTput(sc, "Please enter your choice: ");
+            }
             if (choice == 1) {
                 addTask(taskManager, sc);
             } else if (choice == 2) {
@@ -41,12 +46,22 @@ public class TodoList {
         }
     }
 
-    public static void showOptions() {
+    public static boolean choiceValid(int choice) {
+        return choice >= 1 && choice <= 4;
+    }
+
+    public static void showOptions(ArrayList<task> taskManager) {
         IO.clear();
         IO.print("Welcome to your Todo List!");
         IO.print("1. Add a task");
-        IO.print("2. View tasks");
-        IO.print("3. Mark a task as complete");
+        if (taskManager.size() == 0) {
+            IO.print("2. Locked");
+            IO.print("3. Stop looking at the locked options AND JUST DO NUMBER 1 OR 4");
+        } else if(){}
+        else {
+            IO.print("2. View tasks");
+            IO.print("3. Mark a task as complete");
+        }
         IO.print("4. Exit");
     }
 
@@ -54,6 +69,8 @@ public class TodoList {
         String name = IO.StringPut(sc, "Gimmie the name");
         String desc = IO.StringPut(sc, "Now gimmie discrip");
         taskManager.add(createTask(name, desc));
+        IO.print("K it's done");
+        IO.enterPause(sc);
     }
 
     public static task createTask(String name, String description) {
@@ -61,13 +78,16 @@ public class TodoList {
     }
 
     public static void viewTasks(ArrayList<task> taskManager, Scanner sc) {
+        int count = 0;
         for (task t : taskManager) {
+            count++;
+            IO.print(("Task number: " + count));
             IO.print("Name: " + getName(t));
             IO.print("Description: " + getDescription(t));
             if (getComplete(t)) {
-                IO.print("Complete: Yes");
+                IO.print("Complete: Yes\n");
             } else {
-                IO.print("Complete: No");
+                IO.print("Complete: No\n");
             }
         }
         IO.enterPause(sc);
@@ -112,5 +132,5 @@ public class TodoList {
     public static void setDescription(task t, String description) {
         t.description = description;
     }
-    
+
 }
