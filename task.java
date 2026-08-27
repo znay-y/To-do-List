@@ -9,6 +9,12 @@ public class task {
         this.complete = false;
     }
 
+    public task(String name) {
+        this.name = name;
+        this.description = null;
+        this.complete = false;
+    }
+
     public void setComplete(boolean complete) {
         this.complete = complete;
     }
